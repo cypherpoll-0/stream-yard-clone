@@ -7,6 +7,8 @@ function Stream() {
 		<div>
 			<h1>You are Live!!!</h1>
 			<WebcamVideo />
+			<input />
+			<button />
 		</div>
 	);
 }
