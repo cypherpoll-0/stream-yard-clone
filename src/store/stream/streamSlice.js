@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { socket } from "socket.io-client";
 
 const initialState = {
 	entities: [],
@@ -10,7 +11,7 @@ const streamSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		videoInput(state, action) {
-			state.entities.push(action.payload);
+			socket.on("streamServer", () => {});
 		},
 	},
 });
