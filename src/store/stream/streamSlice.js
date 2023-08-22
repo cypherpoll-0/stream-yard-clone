@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { socket } from "socket.io-client";
+import socket from "socket.io-client";
 
 const initialState = {
 	entities: [],
