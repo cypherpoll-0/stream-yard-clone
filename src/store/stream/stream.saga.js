@@ -11,8 +11,8 @@ function* videoOutputSaga(action) {
 	}
 }
 
-export function* onVideoOutput() {
-	yield takeLatest("type", videoOutputSaga);
+export function* onVideoOutput(actions) {
+	yield takeLatest("type", call(videoOutputSaga, actions));
 }
 
 export function* streamSaga() {

@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
-import { useDispatch } from "redux";
+import { useDispatch } from "react-redux";
 
-import streamSlice from "../../store/stream/streamSlice";
+//import streamSlice from "../../store/stream/streamSlice";
+import { onVideoOutput } from "../../store/stream/stream.saga";
 
 function Stream() {
 	const videoRef = useRef();
 	const dispatch = useDispatch();
-	const { videoInput } = streamSlice.actions;
+	//const { videoInput } = streamSlice.actions;
 	const startCapture = async () => {
 		try {
 			const stream = await navigator.mediaDevices.getUserMedia({
@@ -14,7 +15,7 @@ function Stream() {
 				audio: true,
 			});
 			videoRef.current.srcObject = stream;
-			dispatch(videoInput(stream));
+			dispatch(onVideoOutput(stream));
 		} catch (error) {
 			console.error("Error accessing media devices:", error);
 		}
